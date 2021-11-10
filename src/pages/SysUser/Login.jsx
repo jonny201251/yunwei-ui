@@ -2,7 +2,7 @@ import Form, { FormCore, FormItem } from 'noform'
 import { Input } from 'nowrapper/lib/antd'
 import { ajax, session, sysUserPath } from '../../utils'
 import { Button, Card } from 'antd'
-import { history } from 'umi'
+import { history, useModel } from 'umi'
 
 const validate = {
   loginName: { type: 'string', required: true, message: '登录账号不能为空' },
@@ -11,6 +11,8 @@ const validate = {
 const core = new FormCore({ validateConfig: validate })
 
 export default () => {
+  const { setTabPanes, setActiveKey } = useModel('useTabPanes')
+
   return <div style={{ margin: '0 auto', width: 500, paddingTop: 50 }}>
     <Card title={'用户登录'} headStyle={{ textAlign: 'center', fontWeight: 'bolder' }}>
       <Form core={core} layout={{ label: 6, control: 18 }}>
@@ -29,6 +31,8 @@ export default () => {
                 session.setItem('dataListButtonMap', data.dataListButtonMap)
                 session.setItem('startProcessButtonMap', data.startProcessButtonMap)
                 session.setItem('queryMap', data.queryMap)
+                setTabPanes([])
+                setActiveKey('首页')
                 history.push('/back')
               }
             }

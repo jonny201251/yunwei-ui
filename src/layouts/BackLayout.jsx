@@ -215,7 +215,7 @@ export default () => {
                 onTabClick={key => setActiveKey(key)}>
             <Tabs.TabPane tab="首页" key="首页">
               <div style={{ padding: '0px 12px' }}>
-                <ProcessDefinitonListForHome/>
+                首页
               </div>
             </Tabs.TabPane>
             {renderTabPane()}

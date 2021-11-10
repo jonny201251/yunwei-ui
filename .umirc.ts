@@ -12,7 +12,7 @@ export default defineConfig({
     { path: '/login', component: '@/pages/SysUser/Login' },
     { path: '/back', component: '@/layouts/BackLayout' }
   ],
-  title: '业绩服务平台',
+  title: '运维服务平台',
   fastRefresh: {},
   proxy: {
     '/yunwei': {
