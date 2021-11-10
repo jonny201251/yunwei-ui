@@ -167,7 +167,7 @@ export default () => {
   return <ConfigProvider locale={zhCN}>
     <Layout>
       <Header style={{ backgroundColor: '#1890ff', padding: 0 }}>
-        <span className={collapsed ? 'left-none' : 'left-block'}>{collapsed ? 'YJ' : 'YeJi'}</span>
+        <span className={collapsed ? 'left-none' : 'left-block'}>{collapsed ? 'YW' : 'YunWei'}</span>
         <Icon
           className="trigger"
           style={{ color: '#fff' }}
@@ -177,7 +177,7 @@ export default () => {
             !collapsed ? setOpenKeys([]) : setOpenKeys(rootSubmenuKeys)
           }}
         />
-        <span className='title'>业绩服务平台</span>
+        <span className='title'>运维服务平台</span>
         <div className='right'>
           <Dropdown overlay={DropdownMenu} className='user'>
           <span>
