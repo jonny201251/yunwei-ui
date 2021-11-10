@@ -37,10 +37,6 @@ const onClick = async (type, path, list, record, width = 416, footerAlign = 'lab
     return
   }
   if ('edit' === type || 'preview' === type) {
-    if (type === 'preview') {
-      dialog.footer = () => {
-      }
-    }
     let dialog = {
       title: type === 'edit' ? '修改' : '浏览',
       footerAlign: footerAlign,
@@ -57,6 +53,10 @@ const onClick = async (type, path, list, record, width = 416, footerAlign = 'lab
             message.success('修改成功')
           }
         }
+      }
+    }
+    if (type === 'preview') {
+      dialog.footer = () => {
       }
     }
     Dialog.show(dialog)
