@@ -149,7 +149,7 @@ export default (props) => {
     {
       title: '操作',
       render: (text, record) => {
-        if (dataSourceKey === 'firstData' && !record.groupParentLabel && record.flag !== '字段组类型') {
+        if (dataSourceKey === 'firstData'  && record.flag !== '字段组类型') {
           //firstData中的基本类型+表类型
           return <Space>
             <a onClick={() => sort(record, 'up')}><Icon type="arrow-up"/>上移</a>
@@ -157,7 +157,7 @@ export default (props) => {
             <a onClick={() => editRecord(record)}>修改</a>
             <a onClick={() => deleteRecord(record)}>删除</a>
           </Space>
-        } else if (dataSourceKey === 'firstData' && !record.groupParentLabel && record.flag === '字段组类型') {
+        } else if (dataSourceKey === 'firstData'  && record.flag === '字段组类型') {
           //firstData中的字段组类型
           return <Space>
             <a onClick={() => sort(record, 'up')}><Icon type="arrow-up"/>上移</a>
@@ -165,7 +165,7 @@ export default (props) => {
             <a onClick={() => editRecord(record)}>修改</a>
             <a onClick={() => deleteRecord(record)}>删除</a>
           </Space>
-        } else if (dataSourceKey !== 'firstData' && record.groupParentLabel && record.flag !== '字段组类型') {
+        } else if (dataSourceKey !== 'firstData'  && record.flag !== '字段组类型') {
           //字段组中的基本类型+表类型
           return <Space>
             <a onClick={() => sort(record, 'up')}><Icon type="arrow-up"/>上移</a>
@@ -173,7 +173,7 @@ export default (props) => {
             <a onClick={() => editRecord(record)}>修改</a>
             <a onClick={() => deleteRecord(record)}>删除</a>
           </Space>
-        } else if (dataSourceKey !== 'firstData' && record.groupParentLabel && record.flag === '字段组类型') {
+        } else if (dataSourceKey !== 'firstData'  && record.flag === '字段组类型') {
           //字段组中的字段组类型
           return <Space>
             <a onClick={() => editRecord(record)}>修改</a>
