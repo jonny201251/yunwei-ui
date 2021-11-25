@@ -9,7 +9,7 @@ class ajax {
       return
     }
     return request.post(url, { data: values }).then(res => {
-      if (res.code === 200 && res.data === '用户未登录') {
+      if (res.msg === '用户未登录') {
         Modal.error({ content: '登录过期', okText: '重新登录', onOk: () => history.push('/login') })
       } else if (res.code === 200) {
         //返回值为Object={code,msg,data}
@@ -28,7 +28,7 @@ class ajax {
       return
     }
     return request.get(url, { params: params }).then(res => {
-      if (res.code === 200 && res.data === '用户未登录') {
+      if (res.msg === '用户未登录') {
         Modal.error({ content: '登录过期', okText: '重新登录', onOk: () => history.push('/login') })
       } else if (res.code === 200) {
         //返回值为Object={code,msg,data}

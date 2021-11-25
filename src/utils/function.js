@@ -1,10 +1,11 @@
 //用于将list的请求参数解析出来，默认是字符串
 import { Dialog } from 'nowrapper/lib/antd'
 import { ajax } from './ajax'
-import { Button, message } from 'antd'
+import { Button, message, Modal } from 'antd'
 import { env } from './constant'
 import { session } from './index'
 import { Space } from '../components'
+import { history } from 'umi'
 
 export function listFormatBefore(queryParams) {
   let params = {}
@@ -14,6 +15,12 @@ export function listFormatBefore(queryParams) {
     }
   })
   return params
+}
+
+export function listFormatAfter(data) {
+  if (data === '用户未登录') {
+    Modal.error({ content: '登录过期', okText: '重新登录', onOk: () => history.push('/login') })
+  }
 }
 
 //用于数据列表的按钮
