@@ -28,6 +28,9 @@ export default () => {
   const { current, setCurrent, modalVisit, setModalVisit, title, setTitle, form1Core, map, setMap, setForm1Data, setForm3Data, type, setType } = useModel('useProcessDefinition')
   const [list, setList] = useState()
 
+
+  const [loading, setLoading] = useState(false)
+
   const buttonRender = (record) => {
     let arr = []
     //发起流程按钮
@@ -273,9 +276,11 @@ export default () => {
       width={'100%'}
       okText={'保存流程定义'}
       onOk={async () => {
+        setLoading(true)
         let data = { processDefinition: {}, formTemplateList: [], taskList: [], edgeList: [] }
         //表单1
         const errorArr = await form1Core.validate()
+
         if (errorArr) {
           message.error('基本信息不能为空')
           return
@@ -324,8 +329,10 @@ export default () => {
           setCurrent(0)
           setModalVisit(false)
           message.success('保存成功')
+          setLoading(false)
         }
       }}
+      confirmLoading={loading}
       onCancel={() => {
         //清空表单2
         let initMap = new Map()
