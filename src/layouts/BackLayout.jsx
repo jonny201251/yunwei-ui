@@ -207,7 +207,7 @@ export default () => {
           </Menu>
         </Sider>
         <Content
-          style={{ minHeight: 580 }}
+          style={{ minHeight: document.body.clientHeight - 70 }}
         >
           <Tabs tabBarStyle={{ background: '#fff', height: 55 }}
                 activeKey={activeKey}
