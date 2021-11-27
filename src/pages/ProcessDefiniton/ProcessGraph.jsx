@@ -16,7 +16,7 @@ export default (props) => {
   useEffect(async () => {
     const data = await ajax.get(processDefinitionPath.get, { processDefinitionId: processInstanceData.processDefinitionId })
     const data2 = await ajax.get(processInstanceDataPath.getActiveTaskIdList, { actProcessInstanceId: processInstanceData.actProcessInstanceId })
-    if (data) {
+    if (data && data2) {
       LogicFlow.use(SelectionSelect)
       LogicFlow.use(BpmnXmlAdapter)
       LogicFlow.use(BpmnElement)

@@ -10,7 +10,8 @@ export default defineConfig({
   },
   routes: [
     { path: '/login', component: '@/pages/SysUser/Login' },
-    { path: '/back', component: '@/layouts/BackLayout' }
+    { path: '/back', component: '@/layouts/BackLayout' },
+    { path: '/test', component: '@/pages/Test' }
   ],
   title: '运维服务平台',
   fastRefresh: {},

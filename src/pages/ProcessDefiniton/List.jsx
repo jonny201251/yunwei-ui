@@ -12,7 +12,7 @@ import {
   session,
   sysUserPath
 } from '../../utils'
-import { QueryCondition, Space } from '../../components'
+import { LoadingButton, QueryCondition, Space } from '../../components'
 import OperateButton from './OperateButton'
 import { useModel } from 'umi'
 import Form1 from './Form1'
@@ -162,14 +162,11 @@ export default () => {
               let btnArr = []
               if (startProcessConditionVO && startProcessConditionVO.buttonNameList) {
                 startProcessConditionVO.buttonNameList.forEach(buttonName => {
-                  btnArr.push(<Button onClick={() => {
-                    onClick(buttonName)
-                  }} type={'primary'}>{buttonName}</Button>)
+                  btnArr.push(<LoadingButton onClick={onClick} param={buttonName}
+                                             type={'primary'}>{buttonName}</LoadingButton>)
                 })
               } else {
-                btnArr.push(<Button onClick={() => {
-                  onClick(null)
-                }} type={'primary'}>提交</Button>)
+                btnArr.push(<LoadingButton onClick={onClick} type={'primary'}>提交</LoadingButton>)
               }
               btnArr.push(<Button onClick={() => {
                 hide()
