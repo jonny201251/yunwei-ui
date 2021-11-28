@@ -94,6 +94,7 @@ export const sysUserPath = {
   edit: contextPath + '/sysUser/edit',
   delete: contextPath + '/sysUser/delete',
   login: contextPath + '/sysUser/login',
+  ssoLogin: contextPath + '/sysUser/ssoLogin',
   logout: contextPath + '/sysUser/logout',
   getNameStr: contextPath + '/sysUser/getNameStr',
   getRoleGiveVO: contextPath + '/sysUser/getRoleGiveVO',

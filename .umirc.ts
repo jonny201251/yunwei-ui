@@ -10,6 +10,7 @@ export default defineConfig({
   },
   routes: [
     { path: '/login', component: '@/pages/SysUser/Login' },
+    { path: '/ssologin', component: '@/pages/SysUser/SSOLogin' },
     { path: '/back', component: '@/layouts/BackLayout' },
     { path: '/test', component: '@/pages/Test' }
   ],
