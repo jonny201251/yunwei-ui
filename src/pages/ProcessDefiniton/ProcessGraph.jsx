@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 //原生组件
 import LogicFlow from '@logicflow/core'
 import '@logicflow/core/dist/style/index.css'
@@ -13,6 +13,9 @@ import { ajax, processDefinitionPath, processInstanceDataPath } from '../../util
 
 export default (props) => {
   const { record: processInstanceData } = props
+
+  const [loading, setLoading] = useState(true)
+
   useEffect(async () => {
     const data = await ajax.get(processDefinitionPath.get, { processDefinitionId: processInstanceData.processDefinitionId })
     const data2 = await ajax.get(processInstanceDataPath.getActiveTaskIdList, { actProcessInstanceId: processInstanceData.actProcessInstanceId })
@@ -41,10 +44,11 @@ export default (props) => {
       if (processInstanceData.processStatus !== '完成' && data2) {
         data2.forEach(nodeId => lf.getNodeModel(nodeId).updateAttributes({ fill: 'yellow', isSelected: true }))
       }
+      setLoading(false)
     }
   }, [props])
 
-  return <div className="bpmn-example-container">
+  return !loading && <div className="bpmn-example-container">
     <div id="graph" className="viewport" style={{ textAlign: 'center' }}/>
   </div>
 
