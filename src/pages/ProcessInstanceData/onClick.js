@@ -255,8 +255,8 @@ export const onClickForComplete = async (record) => {
       title: record.processName,
       footerAlign: 'right',
       locale: 'zh',
-      enableValidate: true,
       width: processDefinition.width,
+      enableValidate: true,
       content: <ProcessFormForComplete
         record={record}
         formTree={formTree}
